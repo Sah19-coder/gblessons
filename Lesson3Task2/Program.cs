@@ -29,11 +29,12 @@ namespace Lesson3Task2
         {
             for (int i = 0; i < TelDic.GetUpperBound(0); i += 2)
             {
-                if(TelDic[i, 0] == Name)
+                if (Name.Equals(TelDic[i, 0]))
+                {
                     Console.WriteLine($"{TelDic[i, 0]}      {TelDic[i, 1]}\n");
-                return true;
+                    return true;
+                }
             }
-            Console.WriteLine($"Имя: {Name}  не найденно.\n");
             return false;
         }
         static void Main(string[] args)
@@ -47,8 +48,11 @@ namespace Lesson3Task2
                     case ConsoleKey.S:
                         Console.WriteLine("Введите имя абонента для поиска:");
                         string Name = Console.ReadLine();
-                        if(SeachAndPrintTel(Name));
-                            break;
+                        if(!SeachAndPrintTel(Name))
+                        {
+                            Console.WriteLine($"Имя: {Name}  не найденно.\n");
+                        }
+                        break;
                     case ConsoleKey.P:
                         Program.PrintDic();
                         break;
