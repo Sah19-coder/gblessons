@@ -16,29 +16,74 @@ using System.Threading.Tasks;
 
 namespace Lesson4Task3
 {
-    public enum Seasons
-    {
-        Winter =2,
-        Spring = 5,
-        Summer = 8,
-        Autumn = 11
-        }
-    static Seasons GetSeason(int month)
-    {
-    }
     class Program
     {
+        public enum Seasons
+        {
+            Winter,
+            Spring,
+            Summer,
+            Autumn
+        }
+        /* static Seasons GetSeason(int month)
+         {
+             Seasons[] yea = { Seasons.Winter, Seasons.Winter, Seasons.Spring, Seasons.Spring, Seasons.Spring, Seasons.Summer, Seasons.Summer, Seasons.Summer,
+                 Seasons.Autumn, Seasons.Autumn, Seasons.Autumn, Seasons.Winter };
+         }
+         */
+        static Seasons GetSeason(int month)
+        {
+            Seasons Result = 0;
+            switch(month)
+            {
+                case 12:
+                case 1:
+                case 2:
+                    Result = Seasons.Winter;
+                    break;
+
+                case 3:
+                case 4:
+                case 5:
+                    Result = Seasons.Spring;
+                    break;
+
+                case 6:
+                case 7:
+                case 8:
+                    Result = Seasons.Summer;
+                    break;
+
+                case 9:
+                case 10:
+                case 11:
+                    Result = Seasons.Autumn;
+                    break;
+            }
+            return Result;
+        }
+
+        static string GetSeasonRus(Seasons season)
+        {
+            string[] seasonsRus = { "Зима", "Весна", "Лето", "Осень", };
+            string Result = seasonsRus[(int)season];
+            return Result;
+        }
+        
         static void Main(string[] args)
         {
             Console.WriteLine("Введите номер месяца: ");
             string numMonth = Console.ReadLine();
             int month = Int32.Parse(numMonth);
-            while (month < 0 || month > 12)
+            while (month < 1 || month > 12)
             {
                 Console.WriteLine("Ошибка: введите число от 1 до 12!");
                 numMonth = Console.ReadLine();
                 month = Int32.Parse(numMonth);
             }
+            Seasons season = GetSeason(month);
+            string sName = GetSeasonRus(season);
+            Console.WriteLine($"Это {sName}");
 
         }
     }
