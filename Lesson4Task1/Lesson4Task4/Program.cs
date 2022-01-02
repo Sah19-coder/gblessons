@@ -15,15 +15,15 @@ namespace Lesson4Task4
                 return 1;
  
             int Result = CalcFib(n - 1) + CalcFib(n - 2);
-            Console.Write($" {Result}, ");
+           // Console.Write($" {Result}, ");
             return Result;
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Введите положительное число для вывода ряда Фибоначчи:");
+            Console.WriteLine("Введите положительное число для вывода Фибоначчи:");
             int input = int.Parse(Console.ReadLine());
-            Console.WriteLine("ряд Фибоначчи:");
-            CalcFib(input);
+            Console.WriteLine("Число Фибоначчи:");
+            Console.Write($" {CalcFib(input)} "); 
         }
     }
 }
