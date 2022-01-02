@@ -8,16 +8,14 @@ namespace Lesson4Task4
 {
     class Program
     {
-        static int CalcFib(int what)
+        static int CalcFib(int n)
         {
-            int Result = 0;
-            if (what < 1)
-                return 0;
-            if (what == 1)
+            
+            if (n < 2)
                 return 1;
-
-            Result = CalcFib(what - 1) + CalcFib(what - 2);
-            Console.WriteLine($" {Result}, ");
+ 
+            int Result = CalcFib(n - 1) + CalcFib(n - 2);
+            Console.Write($" {Result}, ");
             return Result;
         }
         static void Main(string[] args)
